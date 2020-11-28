@@ -1,0 +1,7 @@
+@use "../../lib-ui/colors";
+
+.bg {
+  background: colors . $darkGrey;
+  color: white;
+  padding: 1% 3%;
+}

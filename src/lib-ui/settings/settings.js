@@ -1,12 +1,9 @@
-export const buildStyle = (CSS, className) => {
-    let cssString;
+export const buildStyle = (CSS) => {
+    let cssString = "";
     CSS.forEach((e) => {
         if (e) {
-            cssString = `${cssString} ${e}`;
+            cssString += ` ${e}`;
         }
     });
-    if (className) {
-        cssString = `${cssString} ${className}`;
-    }
     return cssString.trim();
 };

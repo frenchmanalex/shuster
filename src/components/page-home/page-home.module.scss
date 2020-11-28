@@ -1,0 +1,31 @@
+@use "../../lib-ui/colors";
+
+.firstBlock {
+  background: url("../../media/shusterL78688_2.jpg") center center no-repeat;
+  background-size: auto 100%;
+  height: 90vh;
+  width: 100%;
+}
+
+.title {
+  font-size: 9rem;
+  color: colors . $orange;
+}
+
+.secondBlock {
+  height: 200vh;
+  position: relative;
+}
+
+.secondBlock:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 300px;
+  background: colors . $orange;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: -1;
+}

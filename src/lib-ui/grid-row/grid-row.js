@@ -3,50 +3,54 @@ import React from "react";
 import s from "./grid-row.module.scss";
 
 
-const GridRow = ({children, className, justify, align, spacing, ...rest}) => {
+const GridRow = ({
+                     children,
+                     className,
+                     justify,
+                     alignItems,
+                     spacing,
+                     column = false,
+                     ...rest
+                 }) => {
 
-    let justifyCSS, alignCSS, spacingCSS;
+    let css = [className, s.all];
 
     switch(justify) {
         case "left":
-            justifyCSS = s.justify_left;
+            css.push(s.justify_left);
             break;
         case "right":
-            justifyCSS = s.justify_right;
+            css.push(s.justify_right);
             break;
         case "between":
-            justifyCSS = s.justify_between;
+            css.push(s.justify_between);
             break;
         case "center":
-            justifyCSS = s.justify_center;
+            css.push(s.justify_center);
             break;
         default:
-            justifyCSS = s.justify_around;
+            css.push(s.justify_around);
             break;
     }
-    switch(align) {
+    switch (alignItems) {
         case "top":
-            alignCSS = s.align_top;
+            css.push(s.align_top);
             break;
         case "bottom":
-            alignCSS = s.align_bottom;
+            css.push(s.align_bottom);
             break;
         case "stretch":
-            alignCSS = s.align_stretch;
+            css.push(s.align_stretch);
             break;
         default:
-            alignCSS = s.align_middle;
+            css.push(s.align_middle);
             break;
     }
-    if (spacing % 2 === 0) {
-        spacingCSS = " grid-col-spacing-" + spacing;
+    if (column) {
+        css.push(s.column);
     }
 
-    let style = [s.all, justifyCSS, alignCSS, spacingCSS];
-
-    console.log(buildStyle(style, className));
-
-    return <div {...rest} className={buildStyle(style, className)}>
+    return <div {...rest} className={buildStyle(css)}>
         {children}
     </div>
 };

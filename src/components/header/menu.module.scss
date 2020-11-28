@@ -1,0 +1,40 @@
+@use "../../lib-ui/colors";
+
+.wrapper {
+  position: relative;
+}
+
+.items {
+  position: absolute;
+  background: white;
+  min-width: 130px;
+  z-index: 10;
+}
+
+.item, .subItem {
+  transition: background-color .2s ease-in-out;
+  display: inline-block;
+
+  &:hover {
+    background-color: colors . $lightOrange;
+  }
+}
+
+.item {
+  width: 92%;
+  height: 100%;
+  padding: 0 4%;
+}
+
+.subItem {
+  width: 92%;
+  height: 92%;
+  padding: 4%;
+}
+
+.subItems {
+  margin-left: 10px;
+  // padding-left: 10px;
+  font-size: .8rem;
+  border-left: 2px solid colors . $orange;
+}
